@@ -1,20 +1,20 @@
 %define	pkgname tsa
 %define name	octave-%{pkgname}
 %define version 4.1.1
-%define release %mkrel 1
 
 Summary:	Time series analysis methods for Octave
 Name:		%{name}
 Version:	%{version}
-Release:	%{release}
+Release:        2
 Source0:	%{pkgname}-%{version}.tgz
 License:	GPLv3+
 Group:		Sciences/Mathematics
 Url:		http://octave.sourceforge.net/tsa/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Conflicts:	octave-forge <= 20090607
 Requires:	octave, octave-nan >= 1.0.0
-BuildRequires:	octave-devel, MesaGL-devel, MesaGLU-devel
+BuildRequires:  octave-devel
+BuildRequires:  mesagl-devel
+BuildRequires:  mesaglu-devel
 BuildArch:	noarch
 
 %description
@@ -26,7 +26,6 @@ analysis in Octave.
 cp %SOURCE0 .
 
 %install
-rm -rf %{buildroot}
 %__install -m 755 -d %{buildroot}%{_datadir}/octave/packages/
 export OCT_PREFIX=%{buildroot}%{_datadir}/octave/packages
 octave -q --eval "pkg prefix $OCT_PREFIX; pkg install -verbose -nodeps -local %{pkgname}-%{version}.tgz"
@@ -37,7 +36,6 @@ mv %{pkgname}/DESCRIPTION .
 mv %{pkgname}/doc/README.TXT .
 
 %clean
-%__rm -rf %{buildroot}
 
 %post
 %{_bindir}/test -x %{_bindir}/octave && %{_bindir}/octave -q -H --no-site-file --eval "pkg('rebuild');" || :
@@ -49,4 +47,12 @@ mv %{pkgname}/doc/README.TXT .
 %defattr(-,root,root)
 %doc COPYING DESCRIPTION README.TXT
 %{_datadir}/octave/packages/%{pkgname}-%{version}
+
+
+
+%changelog
+* Tue Aug 16 2011 Lev Givon <lev@mandriva.org> 4.1.1-1mdv2012.0
++ Revision: 694781
+- import octave-tsa
+
 
