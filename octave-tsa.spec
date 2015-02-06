@@ -3,7 +3,7 @@
 Summary:	Time series analysis methods for Octave
 Name:       octave-%{pkgname}
 Version:	4.1.1
-Release:	4
+Release:	5
 Source0:	%{pkgname}-%{version}.tgz
 License:	GPLv3+
 Group:		Sciences/Mathematics
