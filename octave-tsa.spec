@@ -4,7 +4,7 @@ Summary:	Time series analysis methods for Octave
 Name:		octave-%{octpkg}
 Version:	4.6.3
 Release:	1
-Url:		https://octave.sourceforge.io/%{octpkg}/
+Url:		https://packages.octave.org/%{octpkg}/
 Source0:	https://downloads.sourceforge.net/octave/%{octpkg}-%{version}.tar.gz
 License:	GPLv3+
 Group:		Sciences/Mathematics
@@ -22,8 +22,6 @@ Requires(postun): octave
 %description
 Stochastic concepts and maximum entropy methods for time series analysis
 in Octvave.
-
-This package is part of external Octave-Forge collection.
 
 %files
 %license COPYING
