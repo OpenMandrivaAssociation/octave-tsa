@@ -1,27 +1,28 @@
 %global octpkg tsa
 
 Summary:	Time series analysis methods for Octave
-Name:		octave-%{octpkg}
+Name:		octave-tsa
 Version:	4.6.3
-Release:	1
-Url:		https://packages.octave.org/%{octpkg}/
-Source0:	https://downloads.sourceforge.net/octave/%{octpkg}-%{version}.tar.gz
+Release:	2
 License:	GPLv3+
 Group:		Sciences/Mathematics
-BuildArch:	noarch
+Url:		https://packages.octave.org/tsa/
+Source0:	https://downloads.sourceforge.net/octave/tsa-%{version}.tar.gz
 
-BuildRequires:	octave-devel >= 2.9.7
-BuildRequires:	octave-nan > 3.0.0
+BuildRequires:  octave-devel >= 2.9.7
+BuildRequires:  octave-nan >= 3.0.0
 
 Requires:	octave(api) = %{octave_api}
-Requires:	octave-nan > 3.0.0
+Requires:  	octave-nan >= 3.0.0
 
 Requires(post): octave
 Requires(postun): octave
 
+BuildArch:	noarch
+
 %description
-Stochastic concepts and maximum entropy methods for time series analysis
-in Octvave.
+Stochastic concepts and maximum entropy methods for time series 
+analysis in Octvave.
 
 %files
 %license COPYING
@@ -34,11 +35,7 @@ in Octvave.
 %prep
 %autosetup -p1 -n %{octpkg}-%{version}
 
-# remove backup files
-#find . -name \*~ -delete
-
 %build
-%set_build_flags
 %octave_pkg_build
 
 %install
