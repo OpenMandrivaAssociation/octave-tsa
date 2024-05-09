@@ -3,7 +3,7 @@
 Summary:	Time series analysis methods for Octave
 Name:		octave-tsa
 Version:	4.6.3
-Release:	2
+Release:	3
 License:	GPLv3+
 Group:		Sciences/Mathematics
 Url:		https://packages.octave.org/tsa/
